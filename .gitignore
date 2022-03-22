@@ -1,0 +1,3 @@
+.snakemake
+pipeline-umi-amplicon.sif
+example_egfr_single_read_run

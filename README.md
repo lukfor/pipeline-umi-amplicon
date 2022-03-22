@@ -30,7 +30,7 @@ The following software packages must be installed prior to running:
 After installing miniconda3, install the pipeline as follows:
 ```bash
 # Get pipeline
-$ git clone https://github.com/nanoporetech/pipeline-umi-amplicon.git 
+$ git clone https://github.com/lukfor/pipeline-umi-amplicon.git
 # Change to directory
 $ cd pipeline-umi-amplicon
 # Create conda environment with all dependencies
@@ -45,6 +45,21 @@ $ snakemake -j 1 -pr --configfile config.yml
 # Deactivate environment
 $ conda deactivate
 ```
+
+### Using Containers
+
+Build docker image:
+```bash
+docker build -t pipeline-umi-amplicon:latest .
+singularity build pipeline-umi-amplicon.sif docker-daemon://pipeline-umi-amplicon:latest
+```
+
+Run with `--use-singularity`:
+
+```bash
+snakemake -j 1 -pr --configfile config.yml --use-singularity
+```
+
 
 ### Input
 

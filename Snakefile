@@ -1,3 +1,5 @@
+container: "pipeline-umi-amplicon.sif"
+
 def read_bed_names(filename):
     names = []
     with open(filename) as fh:
@@ -79,7 +81,7 @@ rule all:
     input:
         expand("{name}/targets.bed", name=sample_name),
         expand("{name}/align/{target}_final.bam.bai", name=sample_name, target=target),
-        expand("{name}/stats/{target}_vsearch_cluster_stats.tsv", name=sample_name, target=target), 
+        expand("{name}/stats/{target}_vsearch_cluster_stats.tsv", name=sample_name, target=target),
         expand("{name}/variants/{target}_final.vcf.gz", name=sample_name, target=target),
         expand("{name}/stats/{target}_consensus_size_vs_acc.tsv", name=sample_name, target=target),
 
